@@ -13,6 +13,6 @@ module.exports = {
       "hari9",
       "hari10"
     ],
-    Play: ["hari1test"]
+    Play: ["testhari1"]
   }
 };

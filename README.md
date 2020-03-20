@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e2614683-9c74-4ae0-89dc-59ed5e6b818b/deploy-status)](https://app.netlify.com/sites/30hari/deploys)
+
 # Website
 
 Buku 30 Hari React dibuat dengan [Docusaurus 2](https://v2.docusaurus.io/) dan Berdasarkan translate Buku [30 Days of React](https://github.com/fullstackreact/30-days-of-react).
