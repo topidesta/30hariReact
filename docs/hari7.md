@@ -1,5 +1,5 @@
 ---
 id: hari7
-title: Hari Ke-07
-sidebar_label: Hari `#7`
+title: Hari Ketujuh
+sidebar_label: Hari 07
 ---

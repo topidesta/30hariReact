@@ -1,5 +1,5 @@
 ---
-id: hari1
-title: Hari `#1`
+id: hari20
+title: Hari Ke-20
 sidebar_label: Hari Pertama
 ---

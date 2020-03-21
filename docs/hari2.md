@@ -1,7 +1,7 @@
 ---
 id: hari2
-title: Hari Ke-02
-sidebar_label: Hari Kedua
+title: Hari Kedua
+sidebar_label: Hari 02
 ---
 
 ## Apa Itu JSX?
