@@ -22,7 +22,7 @@ module.exports = {
         },
         { to: "blog", label: "Blog", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://github.com/topidesta/30hari",
           label: "GitHub",
           position: "right"
         }
@@ -39,7 +39,7 @@ module.exports = {
               to: "docs/doc1"
             },
             {
-              label: "Second Doc",
+              label: "Style with MDX",
               to: "docs/doc2"
             }
           ]
@@ -66,16 +66,16 @@ module.exports = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus"
+              href: "https://github.com/topidesta/30hari"
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/docusaurus"
+              href: "https://twitter.com/emang_dasar"
             }
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} 30 Hari Belajar React! and Translate by Dezta with 😍`
+      copyright: `Copyright © ${new Date().getFullYear()} 30 Hari Belajar React! and Translate by Desta with 😍`
     }
   },
   presets: [
@@ -84,7 +84,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/facebook/docusaurus/edit/master/website/"
+          editUrl: "https://github.com/topidesta/30hari/"
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css")
