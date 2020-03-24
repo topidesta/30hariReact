@@ -1,6 +1,6 @@
 ---
 id: hari1
-title: Hari Pertama
+title: Hari Pertama (Apa Itu React)
 sidebar_label: Hari 01
 ---
 

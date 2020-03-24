@@ -1,5 +1,6 @@
 ---
 id: hari4
-title: Hari Keempat
+title: Hari Keempat (Komponen Lengkap)
 sidebar_label: Hari 04
 ---
+
