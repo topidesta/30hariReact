@@ -33,13 +33,14 @@ Kita ubah File “Hello World” yang sebelumnya. Ini dia, beberapa perubahan ke
 ```
 
 ## Menjalankan Librari React
+
 Kita sudah jalankan librari React sebagai `<script>`, di tag `<head>` dihalaman tersebut. Ini sangat penting menempatkan `<script>` kita sebelum kita memulai aplikasi dengan React, dengan katalain variabel `React` dan `ReactDOM` tidak akan didefinisikan diawal untuk kita gunakan.
 
 Juga di tag `head` terdapat sebuat script lainnya, `babel-core`. apa itu?
 
 ### Babel
 
-Pada hari ke-2 kita  sudah bahas tentang ES5 dan ES6. Sudah disinggung ES6 masih tahap peremajaan. Untuk bisa gunakan ES6, langkah terbaiknya kita ubah ES6 Javascript ke ES5 Javascript yang sudah didukung oleh semua browser.
+Pada hari ke-2 kita sudah bahas tentang ES5 dan ES6. Sudah disinggung ES6 masih tahap peremajaan. Untuk bisa gunakan ES6, langkah terbaiknya kita ubah ES6 Javascript ke ES5 Javascript yang sudah didukung oleh semua browser.
 
 **Babel** adalah library untuk mengubah ES6 ke ES5.
 
@@ -69,15 +70,15 @@ Kita lihat sebuah komponen kita sebut `App`. Seperti komponen React lainnya, cla
 
 ```javascript
 class App extends React.Component {
-    render() {
-        return <h1>Hello from our App</h1>
-    }
+  render() {
+    return <h1>Hello from our App</h1>;
+  }
 }
 ```
 
 semua komponen React diakhiri dengan fungsi `render()`. fungsi ini akan mengembalikan nilai sebagai virtual DOM, dari sebuah elemen DOM Browser.
 
-contoh [Kode Hari ke-03](hari3code) kita akan ubah script Javascript tersebut ke komponen `App`.
+contoh [Play](play) kita akan ubah script Javascript tersebut ke komponen `App`.
 
 ```javascript
 <!DOCTYPE html>
@@ -105,12 +106,13 @@ contoh [Kode Hari ke-03](hari3code) kita akan ubah script Javascript tersebut ke
 </body>
 </html>
 ```
+
 bagaimanapun, kita tidak akan melihatnya dilayar, tau kenapa?
 
 kita belum memberikan perintah ke React untuk menampilkan apapun di React atau dimana untuk merendernya. Kita butuh fungsi `ReactDOM.render()` untuk menampilkannya. Tambahkan fungsi tersebut,maka akan muncul dilayar kita.
 
 ```javascript
-var mount = document.querySelector('#app');
+var mount = document.querySelector("#app");
 ReactDOM.render(<App />, mount);
 ```
 
