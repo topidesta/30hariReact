@@ -2,7 +2,7 @@
 
 # Website
 
-Buku 30 Hari React dibuat dengan [Docusaurus 2](https://v2.docusaurus.io/) dan Berdasarkan translate Buku [30 Days of React](https://github.com/fullstackreact/30-days-of-react).
+Buku 30 Hari React dibuat dengan [Docusaurus 2](https://v2.docusaurus.io/), Berdasarkan translate Buku [30 Days of React](https://github.com/fullstackreact/30-days-of-react) dan Setiap Code yang gw coba gw taro dihalaman [Kode 30 Hari](https://github.com/topidesta/30hariCode)
 
 ### Installation
 
@@ -23,10 +23,12 @@ $ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
 
 ### Searching Build
+
 ```
 $ yarn build
 $ node build-search-data.js
 ```
+
 Update your index of searching using lunr.js!
 
 ### Netlify
