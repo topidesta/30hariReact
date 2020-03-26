@@ -264,21 +264,21 @@ class Isi extends React.Component {
 
 Sekarang kita akan gabungkan 2 komponen `child`, yaitu `Judul` dan `Isi`, merupakan komponen child bagian dari komponen `App`. Kurang lebih akan menjadi seperti dibawah ini:
 
-> TODO: JSX FILE STYLE.
-
 ```javascript
 class App extends React.Component {
   render() {
     return (
       <div className="notificationsFrame">
         <div className="panel">
-          <Header />
-          <Content />
+          <Judul />
+          <Isi />
         </div>
       </div>
     );
   }
 }
 ```
+
+> TODO: JSX LIVE STYLE.
 
 Selesai, selanjutnya kita akan buat sebuah komponen lebih dinamis dan menjadi pengolah data dengan React.
