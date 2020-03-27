@@ -251,8 +251,57 @@ class Isi extends React.Component {
 
 ![Timeline 3](/img/timeline3.png)
 
-> Berikut ini preview live di netlify: https://5e7c6e892de05200080c9a41--30haricode.netlify.com/ atau jika ingin melihat sourcecode github: https://github.com/topidesta/30hariCode/commit/04cf33642fa2e31728e1767375a57448a64de1db#diff-16f661b3c05bfec7014e09a54aaee062
+> - Live Perubahan: https://5e7c6e892de05200080c9a41--30haricode.netlify.com/
+> - Source Perubahan: https://github.com/topidesta/30hariCode/commit/04cf33642fa2e31728e1767375a57448a64de1db#diff-16f661b3c05bfec7014e09a54aaee062
 
 Sekarang kita bisa lihat array dalam bentuk aktifitas dan kompoen `isi` yang akan mengaturnya. bagaimanapun kita bisa menambahkan berapapun array, lalu kita hubungkan dengan komponen lebih kompleks, antara isi dan daftar aktifitas.
 
 ## ItemAktifitas
+
+Disini kita akan buat sedikit 1 komponen yang menampilkan aktifitas dan dibanding membuat komponen `Isi` yang kompleks, kita fahami itu. Hal itu memudahkan untuk pengetesan, penambahan fungsi dan lainnya.
+
+Baiklah, waktunya ubah komponen `Isi` dalam menampilkan daftar aktifitas `ItemAktifitas` (kita akan tulis, nanti ya!).
+
+```javascript
+class Isi extends React.Component {
+  render() {
+    const { activities } = this.props; //es6 destructing
+    return (
+      <div className="content">
+        <div className="line">
+          {activities.map(activity => {
+            <ItemAktifitas activity={activity} />;
+          })}
+        </div>
+      </div>
+    );
+  }
+}
+```
+
+Tidak hanya mudah dibaca dan lebih sederhana, tapi memudahkan untuk melakukan test antar komponen. Dengan kode komponen `Isi` yang baru, sekarang kita buat komponen `ItemAktifitas`, yang kita butuhkan kopi data dari komponen `Isi` sebelumnya, yang pernah kitabuat.
+
+```javascript
+class ItemAktifitas extends React.Component {
+  render() {
+    const { activity } = this.props;
+    return (
+      <div className="item">
+        <div className="avatar">
+          <img alt={activity.text} src={activity.user.avatar} />
+          {activity.user.name}
+        </div>
+
+        <span className="time">{activity.timestamp}</span>
+        <p>{activity.text}</p>
+        <div className="commentCount">{activity.comments.length}</div>
+      </div>
+    );
+  }
+}
+```
+
+> - source perubahan:
+> - live perubahan:
+
+Hari ini kita sudah melakukan perubahan di komponen kita dengan data yang tersedia, menggunakan konsep `props` di React. Selanjutnya, kita akan masuk pada komponen **stateful**.
