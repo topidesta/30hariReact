@@ -1,7 +1,7 @@
 ---
 id: hari4
-title: Hari Keempat (Komponen Kompleks)
-sidebar_label: Hari 04
+title: Hari Keempat
+sidebar_label: Hari 04 - Komponen Kompleks
 ---
 
 export const Highlight = ({children, color}) => (

@@ -1,7 +1,7 @@
 ---
 id: hari1
-title: Hari Pertama (Apa Itu React)
-sidebar_label: Hari 01
+title: Hari Pertama
+sidebar_label: Hari 01 - Apa Itu React
 ---
 
 ## Fokus
@@ -34,12 +34,11 @@ Misalkan, Hello World, dalam React website tertulis seperti ini:
 
 ```javascript
 <body>
-    <div id="app"></div>
-    <script type="text/javascript">
-        ReactDOM.render(
-            <h1>Hello World</h1>, document.querySelector('#app')
-        )
-    </script>
+  <div id="app"></div>
+  <script type="text/javascript">
+    ReactDOM.render(
+    <h1>Hello World</h1>, document.querySelector('#app') )
+  </script>
 </body>
 ```
 
@@ -52,6 +51,5 @@ Tidak seperti yang lain, itu hanya predecessors, React dapat bekerja tanpa langs
 Sebuah React Virtual DOM yang eksis di memori dan di gambarkan oleh DOM browser. Karena inilah, ketika kita membuat sebuah komponen React, kita tidak langsung menuliskan langsung ke DOM, tapi kita menuliskan sebuah komponen virtual, dan React akan merubahnya ke dalam DOM browser.
 
 Dalam artikel selanjutnya, kita akan lebih memahaminya nanti, untuk apa kita bangun komponen React dan mempelajari JSX dan menuliskan komponen pertama kita.
-
 
 -- End Of Day 1

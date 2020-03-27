@@ -1,7 +1,7 @@
 ---
 id: hari3
-title: Hari Ketiga (Komponen Pertama)
-sidebar_label: Hari 03
+title: Hari Ketiga
+sidebar_label: Hari 03 - Komponen Pertama
 ---
 
 ## Komponen Pertama Kita

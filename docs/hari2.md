@@ -1,7 +1,7 @@
 ---
 id: hari2
-title: Hari Kedua (Apa itu JSX)
-sidebar_label: Hari 02
+title: Hari Kedua
+sidebar_label: Hari 02 - Apa Itu JSX
 ---
 
 ## Apa Itu JSX?
@@ -33,11 +33,9 @@ Baiklah, inilah beberapa contoh komponen React, agar memiliki gambaran dari fung
 
 ```javascript
 class HelloWorld extends React.Component {
-    render() {
-        return(
-            <h1 className="large">Hello World</h1>
-        );
-    }
+  render() {
+    return <h1 className="large">Hello World</h1>;
+  }
 }
 ```
 
@@ -45,15 +43,9 @@ Fungsi render di komponen HelloWorld terlihat seperti keluaran HTML, tapi itu ad
 
 ```javascript
 class HelloWorld extends React.Component {
-    render() {
-        return(
-            React.createElement(
-                'h1',
-                {className: 'large'},
-                'Hello World'
-            )
-        );
-    }
+  render() {
+    return React.createElement("h1", { className: "large" }, "Hello World");
+  }
 }
 ```
 
@@ -66,32 +58,35 @@ Lihat JSX seperti HTML, sebetulnya itu hanyalah cara menulis lain dari sebuah po
 Dalam sintak tersebut itu adalah komponen React pertama ialah ES6 sintak. Yang dapat menuliskan object dengan OO (object oriented) style. ES6 sintak class yang di translate seperti ini:
 
 ```javascript
-var helloWorld = function(){};
-Object.extends(HelloWorld, React.Component)
-HelloWorld.prototype.render = function(){};
+var helloWorld = function() {};
+Object.extends(HelloWorld, React.Component);
+HelloWorld.prototype.render = function() {};
 ```
 
 Karena JSX ialah JavaScript, kita tidak dapat menggunakan katakunci javascript, termasuk kata **class** dan **for**.
 
 React memberikan kita penambahan attribute className. Kita gunakan itu di HelloWorld yaitu kelas large di h1 tag. Ada beberapa atribute, seperti for, untuk React ke htmlFor sebagai for yang mana itu katakunci. Kita akan lihat saat kita belajar nanti.
 
-Jika kita ingin menuliskan murni JavaSCript dibanding memanfaatkan JSX compiler, kita bisa tuliskan fungsi React.createElement()  dan tidak usah khawatir akan abstraction layer. Kita suka JSX karena memudahkan membaca komponen yang kompleks, berikut contohnya:
+Jika kita ingin menuliskan murni JavaSCript dibanding memanfaatkan JSX compiler, kita bisa tuliskan fungsi React.createElement() dan tidak usah khawatir akan abstraction layer. Kita suka JSX karena memudahkan membaca komponen yang kompleks, berikut contohnya:
 
 ```javascript
 <div>
-    <img src="profile.jpg" alt="Profile Photo" />
-    <h1>Welcome to React!</h1>
+  <img src="profile.jpg" alt="Profile Photo" />
+  <h1>Welcome to React!</h1>
 </div>
 ```
 
 Dalam JavaScript akan terbaca oleh browser sebagai berikut:
 
 ```javascript
-React.createElement("div", null, 
-    React.createElement("img", {src:"profile.jgp", alt: "Profile Photo"}),
-    React.createElement("h1",null,"Welcome to React!")
-)
+React.createElement(
+  "div",
+  null,
+  React.createElement("img", { src: "profile.jgp", alt: "Profile Photo" }),
+  React.createElement("h1", null, "Welcome to React!")
+);
 ```
+
 Sekali lagi, kita akan lewati dahulu JSX dan cara penulisannya, sintak JSX sangat menggoda dalam menampilkan element HTML.
 
 Sekarang kita faham apa itu JSX, kita akan menulis komponen React pertama, gabunglah dengan kami, ketika kita menuliskan aplikasi React Pertama.

@@ -1,7 +1,7 @@
 ---
 id: hari5
-title: Hari Kelima (Data Driven)
-sidebar_label: Hari 05
+title: Hari Kelima
+sidebar_label: Hari 05 - Data Driven
 ---
 
 ## Data Driven
