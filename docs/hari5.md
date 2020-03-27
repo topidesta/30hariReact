@@ -301,7 +301,7 @@ class ItemAktifitas extends React.Component {
 }
 ```
 
-> - source perubahan:
-> - live perubahan:
+> - source perubahan: https://github.com/topidesta/30hariCode/commit/c79cf99efbb97346a16d688b78689b09e0e19fcd
+> - live perubahan: https://5e7d79e9a03bc90008984161--30haricode.netlify.com/
 
 Hari ini kita sudah melakukan perubahan di komponen kita dengan data yang tersedia, menggunakan konsep `props` di React. Selanjutnya, kita akan masuk pada komponen **stateful**.
