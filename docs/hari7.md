@@ -1,6 +1,6 @@
 ---
 id: hari7
-title: Hari Ketujuh
+title: Hari Ketujuh - Siklus Hooks
 sidebar_label: Hari 07 - Siklus Hooks
 ---
 
@@ -14,7 +14,7 @@ Selamat, kita sudah memasuki akhir pekan dalam belajar React dan kita sudah baha
 
 Dalam sebuah aplikasi React yang besar, kita bisa menambahkan fungsi hook disetiap waktu begitu juga disetiap siklus komponen. Kita membutuhkan komponen dimana React bekerja setiap penggunaan hook. Baiklah kita pelajari pertama kali siklus hook yaitu:
 
-## componentWillmount()/ componentDidMound()
+## componentWillmount()/ componentDidMount()
 
 Ketika komponen dalam suatu aplikasi terlihat, kita tidak bisa menentukan secara langsung sebuah DOM sebagimana node virtual. Daripada kita menunggu komponen itu sendiri ter-set dibrowser. Sekedar fungsi saja, kita butuh ketika sudah siap (mounted), kita bisa memanfaatkan 2 hook atau fungsi secara beda. satu dipanggil sebelum komponen terset (mounted) dihalaman dan satu lagi dipanggil setelah komponen terset (mounted).
 
@@ -74,8 +74,12 @@ componentWillMount() {
 Baiklah ubah juga komponen `ItemAktifitas` yang dapat menampilkan struktur objek aktifitas. Kita gunakan `Moment.js` sebagai library memformat waktu yang mudah dibaca, misalkan `30 min ago`, tambahkan script ini.
 
 `<script src="https://unpkg.com/moment@2.24.0/min/moment.min.js"></script>`
+atau
+`yarn add moment`
 
 ```javascript
+import moment from "moment";
+
 class ItemAktifitas extends Component {
   render() {
     const { activity } = this.props;
@@ -92,3 +96,24 @@ class ItemAktifitas extends Component {
   }
 }
 ```
+
+Harap diperhatikan, kita tidak merubah apapun di komponen `Isi`.
+
+## componentWillUpdate()/ componentDidUpdate()
+
+Terkadang kita ingin merubah suatu data dikomponen kita sebelumnya atau setelah kita benar benar melakukan render. Sebagai contoh, kita ingin memanggil fungsi sebuah render, atau sebuah fungsi dimana perlu perubahan `props` dikomponen. Seubah methode `componentWillUpdate()` dapat mengatur komponen tersebut, selama kita tidak memanggil methode `this.setState()`, karena akan terjadi looping tanpa batas.
+
+Kita tidak akan fokus terlalu jauh, jangan kita hiraukan cara menggunakannya, tapi cukup tau sudah cukup kok. Yang akan kita pelajari lebih jauh siklus hook yaitu `componentWillReceiveProps()`.
+
+### componentWillReceiveProps()
+
+React akan menggunakan method ini ketika menerima sebuah `props` baru. Methode pertama yang digunakan sebuah komponen ketika menerima props baru. Mendefinisikan method ini sangat mudah untuk melihat perubahan secara detail di `props` sebagaimana kemudahan dalam mengkalkulasi dan merubah komponen state internal.
+inilah waktunya kita bisa merubah state berdasarkan props yang baru.
+
+> 1 hal yang harus diingat, meski method `componentWillReceiveProps()` dipanggil, nilai value dari `props` mungkin tidak berubah. Itu ide bagus untuk mengecek perubahan nilai value di prop.
+
+Sebagai contoh, kita akan membuat tombol `refresh` di item aktifitas, agar pengguna dapat melakukan request ulang terhadap api github.
+
+Kita akan gunakan `componentWillReceiveProps()` untuk menanyakan ke komponen untuk mereload data. Karena komponen kita adalah stateful. Kita akan refresh state dengan yang baru, jadi kita mudah untuk merubah sebuah props di komponen. kita akan menggunakannya untuk sekedar memberitahukan saja.
+
+Baiklah, sekarang kita tambahkan tombol di komponen yang dapat menjalankan sebuah `requestRefresh` pada props pilihan, di kompoenen `isi`.

@@ -1,6 +1,6 @@
 ---
 id: hari3
-title: Hari Ketiga
+title: Hari Ketiga - Komponen Pertama
 sidebar_label: Hari 03 - Komponen Pertama
 ---
 

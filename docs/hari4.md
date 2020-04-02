@@ -1,6 +1,6 @@
 ---
 id: hari4
-title: Hari Keempat
+title: Hari Keempat - Komponen Kompleks
 sidebar_label: Hari 04 - Komponen Kompleks
 ---
 

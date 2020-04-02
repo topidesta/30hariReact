@@ -1,6 +1,6 @@
 ---
 id: hari6
-title: Hari Keenam
+title: Hari Keenam - State
 sidebar_label: Hari 06 - State
 ---
 

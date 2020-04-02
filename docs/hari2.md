@@ -1,6 +1,6 @@
 ---
 id: hari2
-title: Hari Kedua
+title: Hari Kedua - Apa itu JSX
 sidebar_label: Hari 02 - Apa Itu JSX
 ---
 
