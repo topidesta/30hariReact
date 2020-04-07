@@ -117,3 +117,57 @@ Sebagai contoh, kita akan membuat tombol `refresh` di item aktifitas, agar pengg
 Kita akan gunakan `componentWillReceiveProps()` untuk menanyakan ke komponen untuk mereload data. Karena komponen kita adalah stateful. Kita akan refresh state dengan yang baru, jadi kita mudah untuk merubah sebuah props di komponen. kita akan menggunakannya untuk sekedar memberitahukan saja.
 
 Baiklah, sekarang kita tambahkan tombol di komponen yang dapat menjalankan sebuah `requestRefresh` pada props pilihan, di kompoenen `isi`.
+
+```javascript
+class Isi extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { refreshing: false };
+  }
+  refresh() {
+    this.setState({ refreshing: true });
+  }
+
+  // callback dari komponen isi
+  onComponentRefresh() {
+    this.setState({ refreshing: false });
+  }
+  render() {
+    const { refreshing } = this.state;
+    return (
+      <div className="notificationsFrame">
+        <div className="panel">
+          <Header title="Github activity" />
+          {/* refreshing is the component's state */}
+          <Content
+            onComponentRefresh={this.onComponentRefresh.bind(this)}
+            requestRefresh={refreshing}
+            fetchData={fetchEvents}
+          />
+          {/* A container for styling */}
+          <Footer>
+            <button onClick={this.refresh.bind(this)}>
+              <i className="fa fa-refresh" />
+              Refresh
+            </button>
+          </Footer>
+        </div>
+      </div>
+    );
+  }
+}
+```
+
+:::info `<Footer />`
+Harap diperhatikan, kita buat elemen baru yang menampilkan anak dari element tampilan, pola ini digunakan untuk class CSS yang sama.
+:::
+
+```javascript
+class Footer extends React.Component {
+  render() {
+    return <div className="footer">{this.props.childer}</div>;
+  }
+}
+```
+
+## DISKIP, KELARIN YANG NEW HOOKS DULU YA.
