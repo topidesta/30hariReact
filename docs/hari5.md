@@ -6,8 +6,9 @@ sidebar_label: Hari 05 - Data Driven
 
 ## Data Driven
 
-> :::note Catatan!
-> Menuliskan data dalam baris kode itu sangat tidak baik. Hari ini, kita akan merubah komponen yang dapat mengaksess data dari luar
+:::note Catatan!
+Menuliskan data dalam baris kode itu sangat tidak baik. Hari ini, kita akan merubah komponen yang dapat mengaksess data dari luar
+:::
 
 Dari Poin ini, kita sudah tuliskan komponen kita dan saling berhubung antar komponen `parent` atau `child`. Bagaimanapun, kita belum mencoba data dikomponen React, meski tergantung kebutuhan (menurut kami) didalam website dengan React, kita masih belum mengambil kekuatan React dalam menampilkan data.
 
@@ -103,8 +104,12 @@ class Judul extends React.Component {
 }
 ```
 
-> :::info Berikut ini source dari git: https://github.com/topidesta/30hariCode/commit/6aece32cc1e1d1ed1e5ba423744e5d5d319d7604
-> Kita juga bisa tambahkan komponen `<Judul />` yang akan menampilkan string sebagai `title` ketika komponen dipanggil, cukup dengan menuliskannya sebanyak 4x, seperti dibawah ini:
+:::info 
+Berikut ini source dari git: https://github.com/topidesta/30hariCode/commit/6aece32cc1e1d1ed1e5ba423744e5d5d319d7604
+:::
+
+Kita juga bisa tambahkan komponen `<Judul />` yang akan menampilkan string sebagai `title` ketika komponen dipanggil, cukup dengan menuliskannya sebanyak 4x, seperti dibawah ini
+
 
 ```javascript
 <Judul title="Timeline" />
@@ -117,8 +122,9 @@ maka, akan muncul 4 menu tambahan, kurang lebih seperti dibawah ini:
 
 ![4 Menu](/img/4menu.png)
 
-> :::info ini link livenya: https://5e7c524149d2df0008131180--30haricode.netlify.com/
-> :::
+:::info 
+ini link livenya: https://5e7c524149d2df0008131180--30haricode.netlify.com/
+:::
 
 Nah, mudahbukan? sekarang kita dapat menggunakan berulang-ulang komponen `<Judul />` dengan propertis `title` yang dinamis.
 

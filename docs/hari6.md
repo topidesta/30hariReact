@@ -92,7 +92,8 @@ constructor(props) {
 }
 ```
 
-:::warning Harap diperhatikan `super(props)` harus ada di constructor, jika tidak akan muncul eror
+:::warning 
+Harap diperhatikan `super(props)` harus ada di constructor, jika tidak akan muncul eror
 :::
 
 Sekarang kita punya `this.state` yang sudah didefinisikan di komponen `Clock`, kita dapat letakkan di fungsi `render()`, sekarang kita ubah komponen `Clock` kita:

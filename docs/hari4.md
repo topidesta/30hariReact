@@ -242,23 +242,23 @@ class Isi extends React.Component {
 }
 ```
 
-> :::caution Perhatian
-> Untuk menulis komentar di komponen React kita gunakan bracket sebagi multi-line komentar di javascript.
-> Tidak seperti komentar HTML, seperti dibawah ini:
->
-> ```html
-> <!-- INI KOMENTAR HTML -->
-> ```
->
-> di React, sebuah komponen ditutup dengan bracket:
->
-> ```javascript
-> {
->   /* INI KOMENTAR DI REACT */
-> }
-> ```
->
-> :::
+:::caution Perhatian
+Untuk menulis komentar di komponen React kita gunakan bracket sebagi multi-line komentar di javascript.
+Tidak seperti komentar HTML, seperti dibawah ini:
+
+ ```html
+ <!-- INI KOMENTAR HTML -->
+ ```
+
+ di React, sebuah komponen ditutup dengan bracket:
+
+```javascript
+ {
+   /* INI KOMENTAR DI REACT */
+ }
+```
+
+:::
 
 ## Gabungkan Semua
 
