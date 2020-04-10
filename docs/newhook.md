@@ -197,9 +197,79 @@ Untuk memanfaatkan sebuah Hooks, kita harus teliti. Hal yang utama ialah, hooks 
 
 ## Contoh Hook `useEffect()`
 
+Sebuah hook `useEffect` dapat membantu anda menambahkan performa disisi fungsi komponen. Bisa untuk pemanggilan API, perubahan DOM, semua yang kamu inginkan untuk 'menambahkan' sesuatu untuk terjadi.
+
+Dengan menggunakan hook useEffect, React mengetahui bahwa kamu peduli terhadap aksi setelah selesai dirender.
+
+Baiklah, kita akan melihat contohnya. Kita akan gunakan hook `useEffect()` untuk memanggil API dan mendapatkan responenya.
+
+```javascript
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+
+function App() {
+  let [names, setNames] = useState([]);
+
+  useEffect(() => {
+    fetch("https://uinames.com/api/?amount=25&region=nigeria")
+      .then(respone => respone.json())
+      .then(data => {
+        setNames(data);
+      })
+  })
+
+  return (
+    <div className="App">
+      <div>
+        {names.map((item,i) => (
+          <div key={i}>
+            {item.name} {item.surname}
+          </div>
+        ))}      
+      </div>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+```
+Dalam contoh ini kita gunakan keduanya, yaitu `useState` dan `useEffect`  dikarenakan **dapat memudahkan menampilkan API yang dipanggil menjadi sebuah state**
+
+```javascript
+import React, { useState, useEffect } from "react";
+```
 ### Ambil Data dan Ubah State
 
+Untuk menggunakannya, kita perlu sebuah tempat aksi menggunakan fungsi `useEffect`, kita lewatkan aksinya sebagai fungsi tak dikenali, sebagai argumen pertama.
+
+Dicontoh sebelumnya, kita memanggil sebuah endpoint API yang mengembalikan nilai berupa daftar nama. Ketika sudah di `response`, kita ubah menjadi sebuah JSON dan mengeset kestate dengan menggunakan `setNames(data)`.
+
+```javascript
+let [names, setNames] = useState([]);
+
+useEffect(() => {
+  fetch("https://uinames.com/api/?amount=25&region=nigeria")
+    .then(response => response.json())
+    .then(data => {
+      setNames(data)
+    })
+})
+```
+
 ### Performa useEffect()
+
+Ada hal yang harus dicatat dalam menggunakan `useEffect` yang kurasa saat ini.
+
+Pertama kita harus memikirkan, secara default, `useEffect` akan selalu dipanggil disetiap render, kabar baiknya kita tidak pusing memikirkan putaran data, tapi ada kabar buruknya, kita tidak ingin selalu ada request/ permintaan HTTP, setiap render ulang (dikasus ini). Untuk
+
+Kita bisa gunakan argumen kedua, dalam pemanfaatan `useEffect`, seperti yang kita lakukan sekarang. Argumen kedua dari `useEffect` adalah sebuah list variable yang ingin kita lihat dan selanjutnya kita hanya jalankan hanya ketika nilainya berubah.
+
+Dikasus ini, dicatat ya, kita menambahkan sebuah **array kosong** sebagai argumen kedua. Ini memberikan informasi ke React bahwa kita panggil ketika komponen sudah termounted.
+
+> Untuk lebih dalam apa itu performa Effect, silahkan kehalaman [ini](https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects).
+
+Begitu pula `useState`, `useEffect` dapat melewatkan beragam instance, dimana artinya kita dapat menambahkan beberapa fungsi `useEffect` sekaligus.
 
 ## Contoh Hook `useContext()`
 
