@@ -349,11 +349,58 @@ import { JediContext } from "./context.js";
 
 Refs merupakan cara React dalam mengakses sebuah element dimethod `render()`.
 
-Jika kamu pemula dalam React refs, [kamu bisa baca pengenalan React Refs disini](refs).
+Jika kamu baru dalam React refs, [kamu bisa baca pengenalan React Refs disini](refs).
+
+Sebuah fungsi `useRef()` mengembalikan nilai dari sebuah objek ref.
+
+```javascript
+const refContainer = useRef(initialValue);
+```
 
 ### Form Input dan useRef()
 
-## Kostum Hook
+Kita lihat contoh menggunakan hook `useRef`.
+
+```javascript
+import React, { useState, useRef } from "react";
+import ReactDOM from "react-dom";
+
+function App() {
+  let [name, setName] = useState("Nate");
+
+  let nameRef = useRef();
+
+  const submitButton = () => {
+    setName(nameRef.current.value);
+  };
+
+  return (
+    <div className="App">
+      <p>{name}</p>
+
+      <div>
+        <input ref={nameRef} type="text" />
+        <button type="button" onClick={submitButton}>
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+```
+
+Dalam contoh tersebut, kita menggunakan hook `useRef()` sebagai penghubung dari `useState()` dalam merender nilai dari tag `input` kedalam sebuah tag `p`.
+
+Sebuah ref sendiri dipakai kedalam variabel `nameRef`. Sebuah variabel `nameRef` dapat digunakan sebagai fild input dengan mensetting sebagai `ref`. Intinya, setiap konten dari fild input akan diakses oleh ref.
+
+Sebuah tombol submit memiliki `onClick` handler, dinamakan `submitButton`. Sebuah fungsi `submitButton` memanggil `setName` melalui `useState`. Kita sudah jelaskan `useSate` sebelumnya, `setName` akan digunakan untuk mengeset sebuah state `name`. Untuk mengambil nama dari tag `input`, kita akan gunakan `nameRef.current.value`.
+
+Ada hal lainnya yang harus jadi perhatian tentang `useRef` yaitu fakta bahwa kita bisa gunakan tidak hanya dengan attribue `ref`.
+
+## Penggunaan Kostum Hook
 
 ## Testing untuk React Hook
 
