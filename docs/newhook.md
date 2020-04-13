@@ -215,17 +215,17 @@ function App() {
       .then(respone => respone.json())
       .then(data => {
         setNames(data);
-      })
-  })
+      });
+  });
 
   return (
     <div className="App">
       <div>
-        {names.map((item,i) => (
+        {names.map((item, i) => (
           <div key={i}>
             {item.name} {item.surname}
           </div>
-        ))}      
+        ))}
       </div>
     </div>
   );
@@ -234,11 +234,13 @@ function App() {
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 ```
-Dalam contoh ini kita gunakan keduanya, yaitu `useState` dan `useEffect`  dikarenakan **dapat memudahkan menampilkan API yang dipanggil menjadi sebuah state**
+
+Dalam contoh ini kita gunakan keduanya, yaitu `useState` dan `useEffect` dikarenakan **dapat memudahkan menampilkan API yang dipanggil menjadi sebuah state**
 
 ```javascript
 import React, { useState, useEffect } from "react";
 ```
+
 ### Ambil Data dan Ubah State
 
 Untuk menggunakannya, kita perlu sebuah tempat aksi menggunakan fungsi `useEffect`, kita lewatkan aksinya sebagai fungsi tak dikenali, sebagai argumen pertama.
@@ -252,9 +254,9 @@ useEffect(() => {
   fetch("https://uinames.com/api/?amount=25&region=nigeria")
     .then(response => response.json())
     .then(data => {
-      setNames(data)
-    })
-})
+      setNames(data);
+    });
+});
 ```
 
 ### Performa useEffect()
@@ -275,11 +277,79 @@ Begitu pula `useState`, `useEffect` dapat melewatkan beragam instance, dimana ar
 
 ### Point Utama
 
-### Cara Mudah Untuk Digunakan
+Context dalam react merupakan cara untuk komponen child mengakses nilai dari komponen parent.
+
+Untuk memahaminya, ketika membangun aplikasi React, terkadang kita butuh sebuah nilai dari atas hingga kebawah seperti pohon. Tanpa context, melewati sebuah props tidak akan berjalan dikomponen dengan semestinya, dimana diperlukan. Tidak hanya merepotkan dalam melewatkan props dalam komponen, dapat juga pengenalan yang tidak benar saat selesai.
+
+Melewati prop hingga kebawah seperti tree (cabang), komponen yang tidak berelasi seperti saling terkait, biasa disebut 'props drilling'.
+
+Contex dalam react dapat menyelesaikan masalah dari 'props drilling' dengan mengijinkan nilai dari sebuah tree (cabang) komponen, ke setiap komponen yang membutuhkan nilai tersebut.
+
+### Cara Mudah menggunakan Context
+
+Dengan `useContext`, kita akan memanfaatkan Context begitu sangat mudah.
+
+Dengan fungsi `useContext()` sebagai sebuah objek, dimana sebuah nilai akan kembali dari `React.createContext()` dan mengembalikan nilai sebelumnya. Lihat contoh dibawah ini:
+
+```javascript
+import React, { useContext } from "react";
+import ReactDOM from "react-dom";
+
+const JediContext = React.createContext();
+
+function Display() {
+  const value = useContext(JediContext);
+  return <div>{value}, I am your Father.</div>;
+}
+
+function App() {
+  return (
+    <JediContext.Provider value={"Luke"}>
+      <Display />
+    </JediContext.Provider>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
+```
+
+`https://codesandbox.io/s/3q2x15l4rm`
+
+Dalam kode tersebut, kita membuat sebuah context bernama `JediContext` menggunakan `React.createContext()`.
+
+Kita gunakan `JediContext.Provider` di komponen App dan mengeset nilai dengan nama `"Luke"`. Yang artinya apapun context objek yang dibaca dalam sebuah tree, dapat diambil nilainya.
+
+Untuk membaca nilai kita membuat fungsi `Display()`, kita panggil `useContext`, kita tambahkan sebagai argumen di `JediContext`.
+
+Kita lewati objek context, yang kita dapatkan dari `React.createContext` dan secara otomatis nilainya akan keluar. Ketika ada perubahan, hook ini akan otomatis mentrigger untuk melakukan perbuahan dengan nilai terakhir.
 
 ### Memanfaatkan untuk Aplikasi Besar
 
+Kita sudah buat `JediContext` diantara kedua komponen diatas, tapi dalam aplikasi yang besar, sebuah komponen `Display` dan `App` memungkinkan terdapat di file yang beda. Jadi bagaimana kita mengakses melalui sebuah file objek dari `JediContext` tersebut?
+
+Jawabannya ialah, **kita akan buat sebuah file yang mengexport nilai dari `JediContext`**.
+
+Sebagai contoh, kita akan buat sebuah file, bernama `context.js`, isinya mungkin seperti ini:
+
+```javascript
+const JediContext = React.createContext();
+export { JediContext };
+```
+
+dan didalam `App.js` dan `Display.js`, kita harus import dengan menuliskan seperti ini:
+
+```javascript
+import { JediContext } from "./context.js";
+```
+
+(Thanks, [Dave](https://twitter.com/dceddia)!)
+
 ## Contoh Hook `useRef()`
+
+Refs merupakan cara React dalam mengakses sebuah element dimethod `render()`.
+
+Jika kamu pemula dalam React refs, [kamu bisa baca pengenalan React Refs disini](refs).
 
 ### Form Input dan useRef()
 
