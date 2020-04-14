@@ -169,9 +169,9 @@ class App extends React.Component {
 }
 ```
 
-> :::note Catat!
-> Harap diingat, kita menggunakan tag `className` dalam React ketimbang `class` dari HTML, karena kita tidak menuliskan DOM secara langsung maupun HTML, melainkan JSX. Selain itu `class` adalah kata yang tidak boleh dipake lagi di Javascript.
-> :::
+:::note Catat!
+Harap diingat, kita menggunakan tag `className` dalam React ketimbang `class` dari HTML, karena kita tidak menuliskan DOM secara langsung maupun HTML, melainkan JSX. Selain itu `class` adalah kata yang tidak boleh dipake lagi di Javascript.
+:::
 
 ## Komponen Child
 
@@ -246,16 +246,16 @@ class Isi extends React.Component {
 Untuk menulis komentar di komponen React kita gunakan bracket sebagi multi-line komentar di javascript.
 Tidak seperti komentar HTML, seperti dibawah ini:
 
- ```html
- <!-- INI KOMENTAR HTML -->
- ```
+```html
+<!-- INI KOMENTAR HTML -->
+```
 
- di React, sebuah komponen ditutup dengan bracket:
+di React, sebuah komponen ditutup dengan bracket:
 
 ```javascript
- {
-   /* INI KOMENTAR DI REACT */
- }
+{
+  /* INI KOMENTAR DI REACT */
+}
 ```
 
 :::

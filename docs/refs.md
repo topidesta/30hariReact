@@ -8,17 +8,17 @@ sidebar_label: Refs di Komponen (Pengenalan)
 https://www.newline.co/fullstack-react/articles/using-refs-in-react/
 :::
 
-Ketika menggunakan React, pikirian kita dikhususkan untuk _Jangan terlalu mudah merubah sebuah DOM_, tapi kita harus melewatkan di props dan merender ulang komponennya. Tapi, terkadang ada situasi dimana hal itu tak diperlukan.
+Ketika menggunakan _React_, logika kita dikhususkan untuk **Jangan terlalu mudah merubah sebuah DOM**, tapi kita harus melewatkan di _props_ dan merender ulang komponennya. Tapi, terkadang ada situasi dimana hal itu tak diperlukan.
 
-Refs dalam React dihadirkan untuk memberikan cara, bagaiamana mengakses element React (atau node DOM) yang ditulis oleh methode `render()`.
+_Refs_ dalam _React_ dihadirkan untuk memberikan cara, bagaiamana mengakses element _React_ (atau node _DOM_) yang ditulis oleh methode `render()`.
 
-Ketika komponen parent membutuhkan interaksi dengan komponen child, biasnya kita gunakan [props](https://reactjs.org/docs/components-and-props.html). Bagaimanapun, kita akan ubah sebuah data child tanpa harus melakukan render ulang dengan props yang baru. Itu ketika refs dapat sebuah tanda.
+Ketika komponen _parent_ membutuhkan interaksi dengan komponen child, biasnya kita gunakan [props](https://reactjs.org/docs/components-and-props.html). Bagaimanapun, kita akan ubah sebuah data child tanpa harus melakukan render ulang dengan props yang baru. Itu ketika refs dapat sebuah tanda.
 
 ## Kapan digunakan?
 
 Rekomendasi kami, menggunakan refs bisa berdasarkan situasi:
 
-- Integrasi dengan pihak ketiga terkait liraries DOM
+- Integrasi dengan pihak ketiga terkait libraries DOM
 - Trigger animasi yang penting
 - Mengatur focus, seleksi text dan memutar media
 
@@ -352,7 +352,7 @@ class CustomTextInput extends Component {
 }
 ```
 
-Akhirnya, seubah HOC `input` bersama dengan komponen child, `TextInput` sudah terset ke komponen `InputField`.
+Akhirnya, sebuah HOC `input` bersama dengan komponen _child_, `TextInput` sudah terset ke komponen `InputField`.
 
 Sebuah komponen `InputField` sudah dirender dengan `ref` sekaligus.
 
