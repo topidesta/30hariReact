@@ -2,7 +2,7 @@
 
 # Website
 
-Buku 30 Hari React dibuat dengan [Docusaurus 2](https://v2.docusaurus.io/), Berdasarkan translate Buku [30 Days of React](https://github.com/fullstackreact/30-days-of-react) dan Setiap Code yang gw coba gw taro dihalaman [Kode 30 Hari](https://github.com/topidesta/30hariCode)
+Buku 30 Hari React dibuat dengan [Docusaurus 2](https://v2.docusaurus.io/), Berdasarkan translate Buku [30 Days of React](https://github.com/fullstackreact/30-days-of-react) dan [Kode 30 Hari](https://github.com/topidesta/30hariCode)
 
 ### Installation
 
