@@ -170,4 +170,107 @@ class Footer extends React.Component {
 }
 ```
 
-## DISKIP, KELARIN YANG NEW HOOKS DULU YA.
+Dengan menggunakan `prop` baru ( prop dari `requestRefresh` ), kita dapat update `activities` dari objek `state` dan nilai dapat berubah.
+
+```javascript
+class Content extends React.Component {
+  constructor {
+    this.state = {
+      activities: [],
+      loading: false // <~ set loading to false
+    };
+  }
+  // ...
+  updateData() {
+    this.setState(
+      {
+        loading: false,
+        activities: data.sort(() => 0.5 - Math.random()).slice(0, 4)
+      },
+      this.props.onComponentRefresh
+    );
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // Check to see if the requestRefresh prop has changed
+    if (nextProps.requestRefresh === true) {
+      this.setState({ loading: true }, this.updateData);
+    }
+  }
+  // ...
+}
+```
+
+baiklah sekarang kita update `componentWillMount` dengan memanggil `this.updateData()` jangan `this.setState`.
+
+```javascript
+class Content extends React.Component {
+  // ...
+  componentDidMount() {
+    this.updateData();
+  }
+  // ...
+}
+```
+
+## componentWillUnmount()
+
+Sebelum sebuah komponen sudah unmounte, React akan memanggil callback dari `componentWillUnmount()`. Ini waktu yang tepat untuk merapihkan event yang kita butuhkan, seperti membersihkan waktu selesai, data, memutus websocket dll.
+
+Untuk ringkasnya, dengan komponen jam kita kerjakaan saat akhir waktu, kita set sebuah batasan waktu, yang akan dipanggil setiap detik. Ketika komponen siap untuk diunmount, kita pastikan kita sudah membersihkan batasan waktu, sehingga Javascript tidak akan melanjutkan batasan waktu untuk komponen yang sebenernya tidak ada.
+
+Tulis kembali komponen `timer` yang sudah kita buat:
+
+```javascript
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = this.getTime();
+  }
+
+  componentDidMount() {
+    this.setTimer();
+  }
+
+  setTimer() {
+    this.timeout = setTimeout(this.updateClock.bind(this), 1000);
+  }
+
+  updateClock() {
+    this.setState(this.getTime, this.setTimer);
+  }
+
+  getTime() {
+    const currentTime = new Date();
+    return {
+      hours: currentTime.getHours(),
+      minutes: currentTime.getMinutes(),
+      seconds: currentTime.getSeconds(),
+      ampm: currentTime.getHours() >= 12 ? "pm" : "am"
+    };
+  }
+
+  // ...
+  render() {}
+}
+```
+
+Ketika jam sudah siap unmounted, kita akan bersihkan batasan waktu yang sudah dibuat di fungsi `setTimer()`. Dengan menambahkan fungsi `componentWillUnmount()` akan merapihkan semua.
+
+```javascript
+class Clock extends React.Component {
+  // ...
+  componentWillUnmount() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+  }
+  // ...
+}
+```
+
+Itulah beberapa siklus hook yang berinteraksi di React. Kita akan sering gunakakan saat membangun aplikasi, jadi segera terbiasalah dalam penggunaannya, akan selalu ada, dan bagaimana hook masuk dalam siklus sebuah komponen.
+
+Kita sudah perkenalkan konsep baru yang lebih menjanjikan, kita menambahkan sebuah callback dikomponen yang akan dipanggil melalui komponen child ke komponen parent.
+
+Diseksi selanjutnya, kita akan melihat bagaimana mendefinisikan dan mendokumentasikan sebuah `prop` API dalam komponen untuk penggunaan antar komponen disebuah tim dan aplikasi secara umum.
